@@ -1,30 +1,27 @@
-name: Build Static Library
+name: Build
 
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Install Visual Studio Build Tools
-      uses: microsoft/setup-msbuild@v1.0.2
+      - name: Configure CMake
+        uses: vector-of-bool/github-action-cmake@v1
+        with:
+          cmakeListsTxtPath: ./CMakeLists.txt
+          cmakeBuildType: Release
 
-    - name: Generate Solution File
-      run: |
-        msbuild /t:GenerateSolution
-        ls **/*.sln
-
-    - name: Build Project
-      run: msbuild /p:Configuration=Release
-
-    - name: Upload Static Library
-      uses: actions/upload-artifact@v2
-      with:
-        name: Static Library
-        path: lib/Release/logger.lib
+      - name: Build project
+        run: cmake --build . --config Release
