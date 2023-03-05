@@ -1,0 +1,21 @@
+# CMake files
+/build*/
+/CMakeFiles/
+/CMakeCache.txt
+/CMakeScripts/
+*.cmake
+cmake_install.cmake
+compile_commands.json
+
+# Visual Studio files
+*.suo
+*.sdf
+*.opensdf
+*.vcxproj.user
+*.vcxproj.filters
+*.pdb
+*.idb
+*.ipdb
+*.ilk
+*.log
+*.tlog
