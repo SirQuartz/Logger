@@ -6,7 +6,7 @@
 bool logging_complete = false;
 
 bool initialize_logging() {
-	
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	return true;
 }
 
