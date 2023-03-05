@@ -1,4 +1,4 @@
-name: Build
+name: Build Static Library
 
 on:
   push:
@@ -9,15 +9,22 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup MSBuild
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Visual Studio Build Tools
       uses: microsoft/setup-msbuild@v1.0.2
-    - name: Build
+
+    - name: Generate Solution File
+      run: |
+        msbuild /t:GenerateSolution
+        ls **/*.sln
+
+    - name: Build Project
       run: msbuild /p:Configuration=Release
-    - name: Archive
-      run: 7z a -tzip Logger.zip logger.lib
-    - name: Upload artifact
+
+    - name: Upload Static Library
       uses: actions/upload-artifact@v2
       with:
-        name: Logger
-        path: Logger.zip
+        name: Static Library
+        path: lib/Release/logger.lib
