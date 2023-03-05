@@ -6,9 +6,6 @@
 #include <vector>
 #include <stdarg.h>
 #include <Windows.h>
-#include <dxgi.h>
-#include <WinNT.h>
-#include <intrin.h>
 #include <iostream>
 #include <sstream>
 #include <fstream>
