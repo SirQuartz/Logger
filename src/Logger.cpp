@@ -62,6 +62,8 @@ void write_log_messages() {
 		}
 	}
 
+	// Flush the log_file stream to ensure that all pending data is written to the file
+	log_file.flush();
 	// Close the log file
 	log_file.close();
 }
@@ -115,7 +117,6 @@ void log_message(log_level_t level, const char* message, ...) {
 
 	if (!log_thread){
 		log_thread = std::make_unique<std::thread>(write_log_messages);
-		log_thread->detach();
 	}
 
 }
