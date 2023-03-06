@@ -19,3 +19,6 @@ compile_commands.json
 *.ilk
 *.log
 *.tlog
+
+# Visual Studio Code files
+.vscode/

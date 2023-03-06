@@ -38,12 +38,12 @@
 
 static std::queue<std::string> log_queue;
 static std::mutex log_queue_mutex;
-static std::ofstream log_file;
+static std::ofstream log_file = std::ofstream("log.txt", std::ios::out | std::ios::trunc);
 static std::unique_ptr<std::thread> log_thread;
 // A condition variable to signal when new log messages are available
-static std::condition_variable log_cv;
-static bool closing_log_file = false;
-static bool logging_complete = false;
+std::condition_variable log_cv;
+bool closing_log_file = false;
+bool logging_complete = false;
 
 typedef enum log_level_t {
 	LOG_LEVEL_FATAL = 0,
