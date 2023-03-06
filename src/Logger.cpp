@@ -6,7 +6,7 @@ bool initialize_logging() {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	// Open the log file
-	log_file.open("log2.txt", std::ios::out | std::ios::trunc);
+	log_file.open("log.txt", std::ios::out | std::ios::trunc);
 
     if (!log_file.is_open()) {
         return false;
