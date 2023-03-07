@@ -1,6 +1,6 @@
 # Logger
 
-A message logging library written in C++ that provides flexible logging capabilities to C++ applications. It allows you to easily log messages of different severity levels, such as Error, Warning, Debug, Trace, and Info, and write them to disk.
+A message logging library written in C++ that provides flexible logging capabilities to C++ applications. It allows you to easily log messages of different severity levels, such as Error, Warning, Debug, Trace, and Info, and write them to disk. Currently only for Windows.
 
 [![Build](https://github.com/SirQuartz/Logger/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/SirQuartz/Logger/actions/workflows/build.yml)
 
