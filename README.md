@@ -40,7 +40,7 @@ Alternatively you can just run the build.bat file and it will do the same.
 
 int main()
 {
-    Logger::initialize_logging(); // do initial setup, create log file
+    initialize_logging(); // do initial setup, create log file
     LOG_INFO("Application started"); // log to the output
     
     return 0;
